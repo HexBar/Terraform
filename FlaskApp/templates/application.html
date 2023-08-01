@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="application.css"/>
+
+        <link rel="icon" type="image/x-icon" href="Icon.png"/>
+        <title>Application</title>
+    </head>
+    <body>
+        <h1>Enter Name & Age</h1>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name"><br><br>
+            
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="age"><br><br>
+            
+            <input type="button" value="Submit" onclick="submitForm()">
+        </form>
+        
+
+        <script>
+            function submitForm() {
+                var name = document.getElementById("name").value;
+                var age_value = document.getElementById("age").value;
+
+                alert("Name: " + name + "\nAge: " + age_value);
+            }
+        </script>
+    </body>
+</html>
