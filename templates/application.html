@@ -13,7 +13,10 @@
             <input type="text" id="name" name="name"><br><br>
             
             <label for="age">Age:</label>
-            <input type="text" id="age" name="age"><br><br>
+            <input type="number" id="age" name="age"><br><br>
+
+            <label for="weight">Weight:</label>
+            <input type="number" id="weight" name="weight"><br><br>
             
             <input type="button" value="Submit" onclick="submitForm()">
         </form>
@@ -23,8 +26,9 @@
             function submitForm() {
                 var name = document.getElementById("name").value;
                 var age_value = document.getElementById("age").value;
+                var weight_value = document.getElementById("weight").value;
 
-                alert("Name: " + name + "\nAge: " + age_value);
+                alert("Name: " + name + "\nAge: " + age_value + "\nWeight: "+ weight_value);
             }
         </script>
     </body>
