@@ -8,7 +8,7 @@ The Terraform configuration is defined in the main.tf file. The configuration se
    The required `azurerm` provider is configured with the specified version (3.0.0).
 
 2. Data Sources:
-   The script uses data sources to query existing Azure resources. In this case, it fetches information from an existing Azure Key Vault (`weighttrackerkv`) to retrieve SSH credentials.
+   The script uses data sources to query existing Azure resources. In this case, it fetches information from an existing Azure Key Vault to retrieve SSH credentials.
 
 3. Resource Group:
    Creates an Azure Resource Group.

@@ -46,3 +46,9 @@ variable "vm_name" {
   default     = "vm-"
   description = "Virtual Machine Name"
 }
+
+variable "secret_value" {
+  type        = string
+  default     = "Aa1234567890"
+  description = "db pass"
+}

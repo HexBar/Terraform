@@ -1,4 +1,3 @@
-
 # Resource group
 resource "azurerm_resource_group" "WeightTracker_rg" {
   name     = "${var.resource_group_name}${var.project_name}"
@@ -167,7 +166,7 @@ resource "azurerm_virtual_machine" "web_vm" {
   os_profile {
     computer_name  = "${var.vm_name}${var.project_name}-web"
     admin_username = "sshuser"
-    admin_password = "data.azurerm_key_vault_secret.sshPass"
+    admin_password = var.secret_value
   }
   os_profile_linux_config {
     disable_password_authentication = false
@@ -175,7 +174,7 @@ resource "azurerm_virtual_machine" "web_vm" {
   connection {
     type     = "ssh"
     user     = "sshuser"
-    password = "data.azurerm_key_vault_secret.sshPass"
+    password = var.secret_value
     host     = azurerm_public_ip.web_public_ip.ip_address
     timeout = "40s"
   }
@@ -240,7 +239,7 @@ resource "azurerm_virtual_machine" "db_vm" {
   os_profile {
     computer_name  = "${var.vm_name}${var.project_name}-db"
     admin_username = "sshuser"
-    admin_password = "data.azurerm_key_vault_secret.sshPass"
+    admin_password = var.secret_value
   }
   os_profile_linux_config {
     disable_password_authentication = false
@@ -248,7 +247,7 @@ resource "azurerm_virtual_machine" "db_vm" {
   connection {
     type     = "ssh"
     user     = "sshuser"
-    password = "data.azurerm_key_vault_secret.sshPass"
+    password = var.secret_value
     host = azurerm_network_interface.db-nic.private_ip_address
     timeout = "40s"
   }

@@ -5,7 +5,7 @@ from psycopg2 import Error
 app = Flask(__name__)
 
 # Database connection details
-DB_HOST = '10.0.1.4'  # Replace with host ip
+DB_HOST = '10.0.1.0'  # Replace with host ip
 DB_PORT = '5432'  # Replace with port
 DB_NAME = 'flask_db'  # Replace with database name
 DB_USER = 'postgres'  # Replace with username
@@ -53,8 +53,8 @@ def process_data():
         cur = conn.cursor()
 
         # Execute the INSERT statement with ON CONFLICT DO NOTHING
-        insert_query = "INSERT INTO table_gifts_yovel (name, age_value) VALUES (%s, %s) ON CONFLICT DO NOTHING"
-        cur.execute(insert_query, (name, age_value))
+        insert_query = "INSERT INTO table_weight (name, age_value, weight_value) VALUES (%s, %s, %s) ON CONFLICT DO NOTHING"
+        cur.execute(insert_query, (name, age_value, weight_value))
 
         # Commit the changes
         conn.commit()
@@ -63,6 +63,7 @@ def process_data():
             'status': 'success',
             'name': name,
             'age_value': age_value,
+            'weight_value': weight_value
             'database_status': 'Data inserted successfully'
         }
 
@@ -93,7 +94,7 @@ def retrieve_data(name):
         cur = conn.cursor()
 
         # Execute the SELECT statement to retrieve data based on name
-        select_query = "SELECT * FROM table_gifts_yovel WHERE name = %s"
+        select_query = "SELECT * FROM table_weight WHERE name = %s"
         cur.execute(select_query, (name,))
         result = cur.fetchone()
 
@@ -106,6 +107,7 @@ def retrieve_data(name):
                 'status': 'success',
                 'name': name,
                 'age_value': age_value,
+                'weight_value': weight_value
             }
         else:
             response = {
