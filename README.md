@@ -34,10 +34,14 @@ The Terraform configuration is defined in the main.tf file. The configuration se
 10. Managed Disk:
     Creates an Azure Managed Disk to attach as a data disk to the database VM.
 
-## Usage
+## Installation
 
 1. Install Terraform and Azure CLI on your local machine.
 2. Clone the repository or download the `main.tf` file.
+```
+$ git clone https://github.com/HexBar/Terraform.git
+$ cd Terraform
+```
 3. Initialize the Terraform configuration:
 
 ```bash
