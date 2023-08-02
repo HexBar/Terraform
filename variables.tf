@@ -1,7 +1,7 @@
 # Variables
 variable "project_name" {
   type        = string
-  default     = "final-project"
+  default     = "WeightTracker"
   description = "Project Name"
 }
 
@@ -29,3 +29,20 @@ variable "network_security_group_name" {
   description = "Network Security Group Name"
 }
 
+variable "web_subnet_mask" {
+  type        = string
+  default     = "10.0.1.0/24"
+  description = "Web Subnet Mask"
+}
+
+variable "db_subnet_mask" {
+  type        = string
+  default     = "10.0.2.0/24"
+  description = "Database Subnet Mask"
+}
+
+variable "vm_name" {
+  type        = string
+  default     = "vm-"
+  description = "Virtual Machine Name"
+}
